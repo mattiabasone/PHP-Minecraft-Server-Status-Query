@@ -84,7 +84,7 @@
                 $start = microtime(true);
 
                 socket_send($socket, "\xFE\x01", 2, 0);
-                $length = socket_recv($socket, $data, 512, 0);
+                $length = socket_recv($socket, $data, 512, MSG_DONTWAIT);
 
                 $ping = round((microtime(true)-$start)*1000);//calculate the high five duration
                 
